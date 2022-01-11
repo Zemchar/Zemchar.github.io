@@ -16,9 +16,67 @@
 </head>
 <body oncontextmenu="return false;" ondblclick="$(document).off('mousemove')">
         <p><h1>Right Click To rotate, Double Click to stop rotating, Drag the dewey around!</h1></p>
-        <img class="drag context-menu" id="HandL" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="Hand L" onclick="$(this).clone()">
-        <img class="drag context-menu" id="HandR"style="transform: scaleX(-1);" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="hand r" onclick="$(this).clone()">
-        <img class="drag context-menu" id="Head" src="https://i.ibb.co/ZBLMFD8/dewHead.png" alt="head" onkeypress="$(this).clone().appendTo('body')">
+            <div>
+            <select id="menu" size='5'>
+                <optgroup label="Create New">
+                    <option value="armL">Left Arm</option>
+                    <option value="armR">Right Arm</option>
+                    <option value="head">Head</option>
+                    <option value="Mhead">Head (Mirrored)</option>
+                </optgroup>
+                <optgroup label="Destroy">
+                    <option value="rset">Clear New Parts</option>
+                </optgroup>
+            </select>
+            <p><input type="button" id="btn" value="Confirm Selection"/></p>
+        </div>
+        <img class="drag" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="Hand L" onclick="$(this).clone()">
+        <img class="drag" style="transform: scaleX(-1);" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="hand r" onmousewheel="">
+        <img class="drag" src="https://i.ibb.co/ZBLMFD8/dewHead.png" alt="head" onkeypress="$(this).clone().appendTo('body')">
+    <div class="scriptseperator"></div>
     <script>$('.drag').draggable();$('img').contextmenu(function() {$(this).followCursor();});</script>
+    <script>
+        $('#btn').click(function() {
+        var value = $('#menu').val();
+        if (value == "armL") {
+            var img = $('<img id="dynamic">');
+            img.attr('src', 'https://i.ibb.co/jrFHrHw/dewHand.png');
+            img.attr('class', 'drag new')
+            img.insertBefore('.scriptseperator');
+            
+            
+        }        
+        if (value == "armR") {
+            var img = $('<img id="dynamic">');
+            img.attr('src', 'https://i.ibb.co/jrFHrHw/dewHand.png');
+            img.attr('class', 'drag new')
+            img.attr('style', 'transform: scaleX(-1)');
+            img.insertBefore('.scriptseperator');
+            
+        }        
+        if (value == "Mhead") {
+            var img = $('<img id="dynamic">');
+            img.attr('src', 'https://i.ibb.co/ZBLMFD8/dewHead.png');
+            img.attr('class', 'drag new')
+            img.attr('style', 'transform: scaleX(-1)');
+            img.insertBefore('.scriptseperator');
+            
+        }       
+        if (value == "head") {
+            var img = $('<img id="dynamic">');
+            img.attr('src', 'https://i.ibb.co/ZBLMFD8/dewHead.png');
+            img.attr('class', 'drag new')
+            img.insertBefore('.scriptseperator');
+            
+        }
+        if (value == "rset"){
+            $('.new').hide('slow', function(){ $('.new').remove(); });
+        }
+        $('.drag').draggable();
+        $('img').contextmenu(function() {$(this).followCursor();});
+        });
+    </script>
+    <script>
+</script>
 </body>
 </html>
