@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag the dewey</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
+    <script src="jquery.follow-cursor.js"></script>
+</head>
+<body oncontextmenu="return false;" ondblclick="$(document).off('mousemove')">
+        <p><h1>Right Click To rotate, Double Click to stop rotating, Drag the dewey around!</h1></p>
+        <img class="drag context-menu" id="HandL" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="Hand L" onclick="$(this).clone()">
+        <img class="drag context-menu" id="HandR"style="transform: scaleX(-1);" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="hand r" onclick="$(this).clone()">
+        <img class="drag context-menu" id="Head" src="https://i.ibb.co/ZBLMFD8/dewHead.png" alt="head" onkeypress="$(this).clone().appendTo('body')">
+    <script>$('.drag').draggable();$('img').contextmenu(function() {$(this).followCursor();});</script>
+</body>
+</html>
