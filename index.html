@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>drag the dewey</title>
-    <script
-			  src="https://code.jquery.com/jquery-3.6.0.min.js"
-			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ntegrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
@@ -30,8 +27,13 @@
             </select>
             <p><input type="button" id="btn" value="Confirm Selection"/></p>
         </div>
+        <style>
+            .flipped{
+                transform:scaleX(-1);
+            }
+        </style>
         <img class="drag" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="Hand L" onclick="$(this).clone()">
-        <img class="drag" style="transform: scaleX(-1);" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="hand r" onmousewheel="">
+        <img class="drag flipped" src="https://i.ibb.co/jrFHrHw/dewHand.png" alt="hand r" onmousewheel="">
         <img class="drag" src="https://i.ibb.co/ZBLMFD8/dewHead.png" alt="head" onkeypress="$(this).clone().appendTo('body')">
     <div class="scriptseperator"></div>
     <script>$('.drag').draggable();$('img').contextmenu(function() {$(this).followCursor();});</script>
@@ -47,18 +49,16 @@
             
         }        
         if (value == "armR") {
-            var img = $('<img id="dynamic">');
+            var img = $('<imgid="dynamic">');
             img.attr('src', 'https://i.ibb.co/jrFHrHw/dewHand.png');
-            img.attr('class', 'drag new')
-            img.attr('style', 'transform: scaleX(-1)');
+            img.attr('class', 'drag new flippped')
             img.insertBefore('.scriptseperator');
             
         }        
         if (value == "Mhead") {
             var img = $('<img id="dynamic">');
             img.attr('src', 'https://i.ibb.co/ZBLMFD8/dewHead.png');
-            img.attr('class', 'drag new')
-            img.attr('style', 'transform: scaleX(-1)');
+            img.attr('class', 'drag new flipped')
             img.insertBefore('.scriptseperator');
             
         }       
